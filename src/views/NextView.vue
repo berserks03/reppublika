@@ -1,19 +1,18 @@
 <template>
-  <PageComponent :page="pageOne" />
+  <PageComponent :page="pageTwo" />
   <div class="container">
     <ButtonElement
-      :disabled=true
+      :disabled=false
       :text="jsonData.page_prev_text"
       direction="left"
     />
     <ButtonElement
       :disabled=false
-      :text="jsonData.page_next_text"
+      :text="jsonData.complete_text"
       direction="right"
-      route="/next"
+      route="/end"
     />
   </div>
-  <pre>{{ countAm }}</pre>
 </template>
 
 <script lang="ts">
@@ -23,23 +22,17 @@ import json from '@/assignment/survey.json';
 import ButtonElement from '@/components/UI/Button.vue';
 
 export default defineComponent({
-  name: 'HomeView',
+  name: 'NextView',
   components: {
     ButtonElement,
     PageComponent,
   },
   data() {
     return {
-      pageOne: json.data.pages[0],
+      pageTwo: json.data.pages[1],
       jsonData: json.data,
     };
   },
-  // computed: {
-  //   countAm() {
-  //     console.log(document.querySelectorAll('select'));
-  //     return document.querySelectorAll('option:checked').length;
-  //   },
-  // },
 });
 </script>
 
